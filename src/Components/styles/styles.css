@@ -1,0 +1,95 @@
+#container{
+    display: inline-block;
+    width: 45%;
+    background-color: #ffffff66;
+    border-radius: 10px;
+    margin: 2%;
+    vertical-align: middle;
+    font-size: 25px;
+}
+select, button{
+    font-size: 18px;
+}
+h1{
+    font-size: 25px;
+}
+
+#start{
+    display: inline-block;
+    width: 90%;
+    background-color: #ffffff66;
+    border-radius: 10px;
+    margin: 2%;
+    vertical-align: middle;
+    font-size: 25px;
+}
+#dates p{
+    display: inline-block;
+    width: 15%;
+}
+.bold{
+    font-weight: bold;
+}
+#dates img{
+    width: 50px;
+    vertical-align: middle;
+}
+.GC img{
+    width: 80px;
+}
+#estadisticasCir h3, #estadisticasCir p{
+    display: inline-block;
+    width: 45%;
+    vertical-align: middle;
+    margin: 1%;
+}
+input{
+    width: 15%;
+}
+#datosPAR h3, #datosPAR p, #datosPAR h5{
+    display: inline-block;
+    width: 35%;
+    vertical-align: middle;
+    margin: 1%;
+    font-size: 18px;
+
+}
+#datosPAR p{
+    width: 48%;
+}
+#datosPAR #es{
+    width: 100%;
+}
+.partPista{
+    vertical-align: middle;
+    text-align: left;
+}
+.partPista  div p{
+    vertical-align: middle;
+    text-align: center;
+}
+#c{
+    font-size: 15px;
+}
+.partPista div img{
+    height: 120px;
+}
+.partPista{
+    width: 60px;
+}
+.name{
+    color: aliceblue;
+}
+.partPista div p {
+    vertical-align: middle;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: solid 3px;
+    width: 100%;
+    border-color: #ffd0e2;
+    border-radius: 12px;
+}
+.partPista div .car{
+    height: 50px;
+}
