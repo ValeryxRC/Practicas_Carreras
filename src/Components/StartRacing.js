@@ -32,20 +32,27 @@ export default function StartRacing({ participants,setParticipants, setIniciar, 
     let positions = [];
 
     parts.forEach((element, index) => {
-        positions.push({ points: pts[index], participant: parts[index] });
+      positions[pts[index]] =parts[index];
     });
+    let ptsOrd = [...pts].sort();
+    console.log("Puntos Ordenados");
+    console.log(ptsOrd);
+    let positionsOrt = [];
+    let cant = 0;
+    for (let index = ptsOrd.length - 1; index >= 0; index--) {
+      positionsOrt[cant] = positions[ptsOrd[index]];
+      cant++;
+    }
+  
+    console.log("breK");
+    console.log(positionsOrt);
+    console.log("Ganador: " + positionsOrt[0].name);
+    alert("Ganador: " + positionsOrt[0].name);
+    
 
-    // Ordenar el array de posiciones según los puntos en orden descendente
-    positions = positions.sort((a, b) => b.points - a.points);
-
-    console.log("Ganador: " + positions[0].participant.name);
-    alert("Ganador: " + positions[0].participant.name);
-    console.log(positions);
-
-    for (let index = 0; index < positions.length; index++) {
-        let participant = positions[index].participant;
+    for (let index = 0; index < positionsOrt.length; index++) {
+        let participant = positionsOrt[index];
         let pos = participants.indexOf(participant);
-
         if (pos !== -1) {
             participants[pos].setClasif(index);
         }
@@ -53,6 +60,10 @@ export default function StartRacing({ participants,setParticipants, setIniciar, 
 
     setParticipants([...participants]);
 }
+
+
+
+
 
 
   
@@ -64,12 +75,6 @@ export default function StartRacing({ participants,setParticipants, setIniciar, 
     let metros = parseInt(iniciar.long / 1340);
     let interval = setInterval(function () {
       for (let index = 0; index < iniciar.participants.length; index++) {
-        if (pts[index][0] >= iniciar.long) {
-          ganador = iniciar.participants[index];
-          alert("La carrera a finalizado ");
-          clearInterval(interval);
-          actualizarEstadisticas(participants, setParticipants, pts, iniciar.participants);
-        }
         let vehicule = iniciar.participants[index].vehicule;
         if (iniciar.participants[index].vehicule instanceof Car) {
           pts[index][0] += vehicule.setspeed(iniciar.participants[index].vehicule.traccion, iniciar.time);
@@ -77,6 +82,12 @@ export default function StartRacing({ participants,setParticipants, setIniciar, 
           console.log(pts[index][0]);
           console.log(vehicule.speed);
           moverPersonaje(iniciar, index, pts[index][0], metros);
+          if (pts[index][0] >= iniciar.long) {
+            ganador = iniciar.participants[index];
+            alert("La carrera a finalizado ");
+            clearInterval(interval);
+            actualizarEstadisticas(participants, setParticipants, pts, iniciar.participants);
+          }
         }
         if (iniciar.participants[index].vehicule instanceof Bike) {
           console.log('hbike');
@@ -94,6 +105,12 @@ export default function StartRacing({ participants,setParticipants, setIniciar, 
           console.log(pts[index][0]);
           console.log(vehicule.speed);
           moverPersonaje(iniciar, index, pts[index][0], metros);
+          if (pts[index][0] >= iniciar.long) {
+          ganador = iniciar.participants[index];
+          alert("La carrera a finalizado ");
+          clearInterval(interval);
+          actualizarEstadisticas(participants, setParticipants, pts, iniciar.participants);
+        }
         }
       }
     }, 500);
